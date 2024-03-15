@@ -89,7 +89,7 @@ class Horarioro:
         self.btn_siguiente = tk.Button(self.fr_condiciones_2, text="Siguiente", command=lambda: self.actualizar_i_horario(1))
         self.btn_siguiente.grid(row=0, column=1)
 
-        self.btn_siguiente = tk.Button(self.fr_condiciones, text="Generar Horarios", width=15, command=lambda: self.actualizar_num_cruces(0))
+        self.btn_siguiente = tk.Button(self.fr_condiciones, text="Generar Horarios", width=15, command=self.generar_horarios)
         self.btn_siguiente.grid(row=7, column=0)
         
         self.descripcion_i_horario = tk.Label(self.fr_condiciones, text=" ", font=("Arial",9), width=30, justify=tk.CENTER)
