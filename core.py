@@ -118,7 +118,6 @@ def caracterizar_y_verificar(df, cursos, condiciones):
                     horario.update(horario_test)
                 if not hay_cruces:
                     lista_horarios.append(permutaciones[i])
-                    print(f"{i+1} {lista_horarios[-1]}")
                 else:
                     i_curso+=1
                     permutacion = list(permutaciones[i])
@@ -131,9 +130,5 @@ def caracterizar_y_verificar(df, cursos, condiciones):
         j=0
         for i, permutacion in enumerate(itertools.product(*cursos.values())):
             if es_un_horario_valido(df, cursos.keys(), permutacion, condiciones):
-                # print(i+1)
                 lista_horarios.append(permutacion)
-                print(f'{i+1} {permutacion}')
-                j+=1
-        print(f'{j} horarios validos')
         return lista_horarios
