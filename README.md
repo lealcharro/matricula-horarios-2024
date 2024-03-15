@@ -20,3 +20,11 @@ https://fic.uni.edu.pe/cruce-de-horarios/
 https://generador-de-horarios-gdsc-uni.web.app/
 
 https://www.youtube.com/watch?v=RGNXdHToaw8&/
+
+![image](https://github.com/lealcharro/matricula-horarios-2024/assets/134627366/680c3ca6-27b6-4682-8cc7-cdba5ca97135)
+
+![image](https://github.com/lealcharro/matricula-horarios-2024/assets/134627366/9dcbb2f5-d3c8-44b4-9cd4-d84ed8ab842b)
+
+![image](https://github.com/lealcharro/matricula-horarios-2024/assets/134627366/b1b9ee8a-1842-45a7-a7f1-3f761b96f821)
+
+![image](https://github.com/lealcharro/matricula-horarios-2024/assets/134627366/498fd0e8-a9cf-4528-97e7-2c34a8036570)
