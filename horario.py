@@ -89,6 +89,12 @@ class Horarioro:
         self.btn_siguiente = tk.Button(self.fr_condiciones_2, text="Siguiente", command=lambda: self.actualizar_i_horario(1))
         self.btn_siguiente.grid(row=0, column=1)
 
+        self.btn_siguiente = tk.Button(self.fr_condiciones, text="Generar Horarios", width=15, command=lambda: self.actualizar_num_cruces(0))
+        self.btn_siguiente.grid(row=7, column=0)
+        
+        self.descripcion_i_horario = tk.Label(self.fr_condiciones, text=" ", font=("Arial",9), width=30, justify=tk.CENTER)
+        self.descripcion_i_horario.grid(row=8, column=0)
+        
 
     def elegir_cursos(self):
         self.posicion_horarioro = self.parent.geometry().split("+")[1:3]
@@ -109,6 +115,7 @@ class Horarioro:
         self.str_i_horario.config(text="0 / 0")
         self.parent.deiconify()
         self.parent.geometry(f"+{posicion[0]}+{posicion[1]}") if posicion else None
+        self.descripcion_i_horario.config(text=' ')        
         self.parent.mainloop()
 
 
@@ -141,7 +148,15 @@ class Horarioro:
         if self.i_horario.get() == 0:
             for row, hour in enumerate(hours):
                 self.tree.item(self.tree.get_children()[row], values=tuple([hour]))
+            self.descripcion_i_horario.config(text='')
             return
+        frase = ''
+        for cso in self.cursos.keys():
+            frase += ' '+cso
+        frase += '\n     '
+        for hor in self.lista_horarios[self.i_horario.get()-1]:
+            frase += ' '+hor +'         '
+        self.descripcion_i_horario.config(text=frase, justify='left')
         horario = secciones_to_horario(DFF, self.cursos.keys(), self.lista_horarios[self.i_horario.get()-1])
         for hora, actividades in horario.items():
             cargas = [carga for carga in actividades.values()]
