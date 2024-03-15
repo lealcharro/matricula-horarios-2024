@@ -21,6 +21,8 @@ https://generador-de-horarios-gdsc-uni.web.app/
 
 https://www.youtube.com/watch?v=RGNXdHToaw8&/
 
+https://horext.octatec.io/
+
 ![image](https://github.com/lealcharro/matricula-horarios-2024/assets/134627366/680c3ca6-27b6-4682-8cc7-cdba5ca97135)
 
 ![image](https://github.com/lealcharro/matricula-horarios-2024/assets/134627366/9dcbb2f5-d3c8-44b4-9cd4-d84ed8ab842b)
