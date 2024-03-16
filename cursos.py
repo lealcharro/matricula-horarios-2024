@@ -1,6 +1,5 @@
 import tkinter as tk
 from tkinter import ttk
-import sqlite3
 
 
 class Cursosos:
@@ -8,12 +7,12 @@ class Cursosos:
         self.instancia_horarioro = instancia_horarioro
         self.parent = tk.Tk()
         self.parent.title("Franatostein")
-        self.parent.minsize(1030, 328)  # Tamaño mínimo
-        self.parent.maxsize(1030, 328)  # Tamaño máximo
+        self.parent.minsize(1030, 328)
+        self.parent.maxsize(1030, 328)
         self.posicion_cursoso = None
 
         self.conn = sqlite3.connect('Generador de Horarios db malla_2018 horarios_2024_1.db')
-        self.cursor = self.conn.cursor()
+        self.cursor = self.instancia_horarioro.cursor
 
         self.opciones = []
         self.valores_listbox = []
