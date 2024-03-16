@@ -5,7 +5,7 @@ En mi universidad, durante la matrícula al inicio de cada ciclo académico, nos
 
 Inspirado en trabajos previos (al final del readme), he desarrollado un generador de horarios que tiene en cuenta estos cruces horarios según el reglamento de matrícula de nuestra universidad. Lo más destacado es que este generador está completamente implementado en Python, utilizando Tkinter para la interfaz de usuario.
 
-Se utilizan archivos .db (SQLite) y .csv (Pandas) como base de datos. Las bases de datos utilizadas (malla curricular del año 2018 y horarios 2024) pertenecen a la Facultad de Ciencias, son públicas y se encuentran disponibles en la página oficial de estadística de nuestra universidad.
+Se utiliza una base de datos .db que se accede con SQLite. Las bases de datos utilizadas (malla curricular del año 2018 y horarios 2024) pertenecen a la Facultad de Ciencias, son públicas y se encuentran disponibles en la página oficial de estadística de nuestra universidad.
 
 ¡Simplifica tu proceso de inscripción y encuentra el horario ideal con nuestro generador de horarios universitarios!
 
