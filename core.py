@@ -1,27 +1,26 @@
-import pandas as pd
 import itertools
 
-DFF = pd.read_csv('Cursos Disponibles FC 2024-1 horas.csv')
 ram_df = [[],[]]
 
-def get_horas_cod_sec_tipo(df, curso, seccion, tipo):
+def get_horas_cod_sec_tipo(cursor, curso, seccion, tipo):
     global ram_df
     if (curso, seccion, tipo) in ram_df[0]:
         return ram_df[1][ram_df[0].index((curso, seccion, tipo))]
     ram_df[0].append((curso, seccion, tipo))
-    df_c_s_t = df.loc[(df['codigo'] == curso) & (df['seccion'] == seccion) & (df['tipo'] == tipo), 'horas']
-    ram_df[1].append(df_c_s_t)
-    return df_c_s_t
+    cursor.execute("SELECT DISTINCT horas FROM horarios_2024_1 WHERE codigo = ? AND seccion = ? AND tipo = ?",
+                          (curso, seccion, tipo,))
+    ram_df[1].append([hora for hora in cursor.fetchall()])
+    return ram_df[1][-1]
 
 
-def get_horas_cod_sec(df, curso, seccion):
+def get_horas_cod_sec(cursor, curso, seccion):
     global ram_df
     if (curso, seccion) in ram_df[0]:
         return ram_df[1][ram_df[0].index((curso, seccion))]
     ram_df[0].append((curso, seccion))
-    df_c_s_t = df.loc[(df['codigo'] == curso) & (df['seccion'] == seccion), 'horas']
-    ram_df[1].append(df_c_s_t)
-    return df_c_s_t
+    cursor.execute("SELECT DISTINCT horas FROM horarios_2024_1 WHERE codigo = ? AND seccion = ?", (curso, seccion,))
+    ram_df[1].append([hora for hora in cursor.fetchall()])
+    return ram_df[1][-1]
 
 
 def get_cruces_curso_curso(df, curso_i, seccion_i, curso_j, seccion_j):
