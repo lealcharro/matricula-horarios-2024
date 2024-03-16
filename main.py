@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import ttk, font
 from conexion_core_y_ventana import secciones_to_horario
-from core import caracterizar_y_verificar, DFF
+from core import caracterizar_y_verificar
 from cursos import Cursosos
 from conexion_core_y_ventana import listbox_to_cursos
+import sqlite3
 
 
 class Horarioro:
@@ -21,7 +22,10 @@ class Horarioro:
         self.con_tt = tk.BooleanVar(value=False)
         self.con_tp = tk.BooleanVar(value=False)
         self.condiciones = [0, False, False]
-    
+
+        self.conn = sqlite3.connect('Generador de Horarios db malla_2018 horarios_2024_1.db')
+        self.cursor = self.conn.cursor()
+        
         self.lista_horarios = []
         self.i_horario = tk.IntVar(value=0)
         
@@ -130,7 +134,7 @@ class Horarioro:
         self.condiciones = [self.num_cruces.get(), self.con_tt.get(), self.con_tp.get()]
         self.lista_horarios = []
         self.i_horario.set(0)
-        self.lista_horarios = caracterizar_y_verificar(DFF, self.cursos, self.condiciones)
+        self.lista_horarios = caracterizar_y_verificar(self.cursor, self.cursos, self.condiciones)
         self.actualizar_i_horario(1)
 
 
@@ -157,7 +161,7 @@ class Horarioro:
         for hor in self.lista_horarios[self.i_horario.get()-1]:
             frase += ' '+hor +'         '
         self.descripcion_i_horario.config(text=frase, justify='left')
-        horario = secciones_to_horario(DFF, self.cursos.keys(), self.lista_horarios[self.i_horario.get()-1])
+        horario = secciones_to_horario(self.cursor, self.cursos.keys(), self.lista_horarios[self.i_horario.get()-1])
         for hora, actividades in horario.items():
             cargas = [carga for carga in actividades.values()]
             cargas.insert(0, hora)
